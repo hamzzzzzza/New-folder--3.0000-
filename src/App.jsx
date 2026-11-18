@@ -258,11 +258,8 @@ function App() {
 
       <nav id="navbar" className={scrolled ? 'scrolled' : ''}>
         <div className="nav-inner">
-          <a className="nav-logo" href="#hero" aria-label="Intercraft Academy home">
-            <div className="logo-mark">
-              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" /></svg>
-            </div>
-            <span className="logo-text">Inter<span>craft</span></span>
+          <a className="nav-logo" href="#hero" aria-label="Internroll home">
+            <img className="logo-image" src="/assets/internroll-logo-transparent.png" alt="Internroll - Internship Made Simple" />
           </a>
           <div className="nav-links">
             <a href="#courses" className="nav-link">Explore <span aria-hidden="true">⌄</span></a>
@@ -301,24 +298,23 @@ function App() {
           <div className="hero-inner">
             <div className="hero-content">
               <div className="hero-badge"><span className="pulse" />5,000+ Interns Enrolled</div>
-              <h1 className="hero-title">Launch Your Career<br />with <em>Real Internships</em></h1>
+              <h1 className="hero-title"><span className="hero-title-first">Launch Your Career</span><br /><span className="hero-title-second">with</span> <em>Real Internships</em></h1>
               <p className="hero-sub">Work on real-world projects, gain practical experience, and earn verified internship certificates.</p>
               <form className="hero-search-bar" onSubmit={event => { event.preventDefault(); scrollToCourses(); }}>
                 <span className="hero-search-icon" aria-hidden="true">⌕</span>
-                <input value={search} onChange={event => updateSearch(event.target.value)} placeholder="What domain do you want to intern in?" aria-label="Search internships" />
+                <input value={search} onChange={event => updateSearch(event.target.value)} placeholder="Search internships (ML, Web Dev, Marketing...)" aria-label="Search internships by role or skill" />
                 <button type="submit">Search Internships</button>
               </form>
-              <div className="hero-chips">
-                {['Machine Learning', 'Backend Development', 'Python Programming', 'Digital Marketing', 'Data Structures', 'Stock Market & Crypto'].map((topic, index) => (
-                  <button className="chip" type="button" key={topic} onClick={() => { updateSearch(topic); scrollToCourses(); }}>
-                    {['🤖', '💻', '🐍', '📱', '🏗️', '📈'][index]} {topic}
-                  </button>
-                ))}
+              <div className="hero-benefits" aria-label="Program benefits">
+                <div className="hero-benefit"><span aria-hidden="true">✓</span> Beginner Friendly</div>
+                <div className="hero-benefit"><span aria-hidden="true">✓</span> Real Projects</div>
+                <div className="hero-benefit"><span aria-hidden="true">✓</span> Certificate Included</div>
               </div>
-              <div className="hero-stats">
-                <div className="hero-stat"><div className="num" data-target="1200"><AnimatedNumber target={1200} enabled={heroStatsStarted} /></div><div className="lbl">Active Projects</div></div>
-                <div className="hero-stat"><div className="num" data-target="340"><AnimatedNumber target={340} enabled={heroStatsStarted} /></div><div className="lbl">Expert Mentors</div></div>
-                <div className="hero-stat"><div className="num" data-target="98"><AnimatedNumber target={98} enabled={heroStatsStarted} /></div><div className="lbl">% Career Support</div></div>
+              <div className="hero-stats" aria-label="Internroll statistics">
+                <div className="hero-stat"><div className="num">1500+</div><div className="lbl">Students Enrolled</div></div>
+                <div className="hero-stat"><div className="num">6+</div><div className="lbl">Domains</div></div>
+                <div className="hero-stat"><div className="num">1000+</div><div className="lbl">Projects Done</div></div>
+                <div className="hero-stat"><div className="num">10+</div><div className="lbl">Top Instructors</div></div>
               </div>
             </div>
             <Reveal className="hero-visual reveal-delay-2">
