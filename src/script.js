@@ -13,7 +13,8 @@ const coursesData = [
     badge: 'Bestseller',
     badgeColor: 'badge-blue',
     img: '/assets/machine-learning.png',
-    tags: ['No experience required', '10,000+ students', 'Real Projects']
+    tags: ['No experience required', '10,000+ students', 'Real Projects'],
+    topics: ['Data preparation', 'Predictive models', 'Model evaluation', 'AI project work']
   },
   {
     id: 2,
@@ -29,7 +30,8 @@ const coursesData = [
     badge: 'Most Popular',
     badgeColor: 'badge-gold',
     img: '/assets/backend-development.png',
-    tags: ['Beginner Friendly', 'Verified Certificate', 'Real Projects']
+    tags: ['Beginner Friendly', 'Verified Certificate', 'Real Projects'],
+    topics: ['Server-side application basics', 'REST API design', 'Database integration', 'Backend project work']
   },
   {
     id: 3,
@@ -45,7 +47,8 @@ const coursesData = [
     badge: 'Trending',
     badgeColor: 'badge-teal',
     img: '/assets/python-programming.png',
-    tags: ['No experience required', 'Hands-on', '10,000+ students']
+    tags: ['No experience required', 'Hands-on', '10,000+ students'],
+    topics: ['Python fundamentals', 'Functions and data structures', 'Automation scripts', 'Practical coding tasks']
   },
   {
     id: 4,
@@ -61,7 +64,8 @@ const coursesData = [
     badge: 'Popular',
     badgeColor: 'badge-blue',
     img: '/assets/digital-marketing.png',
-    tags: ['Project Included', 'Professional Guidance', 'Beginner']
+    tags: ['Project Included', 'Professional Guidance', 'Beginner'],
+    topics: ['SEO fundamentals', 'Social media strategy', 'Campaign planning', 'Performance analytics']
   },
   {
     id: 5,
@@ -77,7 +81,8 @@ const coursesData = [
     badge: 'Critical Prep',
     badgeColor: 'badge-gold',
     img: '/assets/data-structures.png',
-    tags: ['Interview Ready', 'Certificate', 'Real Projects']
+    tags: ['Interview Ready', 'Certificate', 'Real Projects'],
+    topics: ['Arrays and linked lists', 'Stacks and queues', 'Trees and graphs', 'Problem-solving patterns']
   },
   {
     id: 6,
@@ -93,7 +98,8 @@ const coursesData = [
     badge: 'Creative',
     badgeColor: 'badge-teal',
     img: '/assets/video-editing.png',
-    tags: ['No experience required', 'Portfolio', 'Projects']
+    tags: ['No experience required', 'Portfolio', 'Projects'],
+    topics: ['Timeline editing', 'Transitions and pacing', 'Audio and color basics', 'Creative project work']
   },
   {
     id: 7,
@@ -109,7 +115,8 @@ const coursesData = [
     badge: 'Finance',
     badgeColor: 'badge-blue',
     img: '/assets/accounting-finance.png',
-    tags: ['Certified', 'Verified', 'Mentorship']
+    tags: ['Certified', 'Verified', 'Mentorship'],
+    topics: ['Financial statements', 'Bookkeeping fundamentals', 'Budgeting and analysis', 'Audit basics']
   },
   {
     id: 8,
@@ -125,7 +132,8 @@ const coursesData = [
     badge: 'New',
     badgeColor: 'badge-orange',
     img: '/assets/stock-market.png',
-    tags: ['No prior knowledge', 'Stock & Crypto', '₹1 Lakh Mock Portfolio']
+    tags: ['No prior knowledge', 'Stock & Crypto', '₹1 Lakh Mock Portfolio'],
+    topics: ['Market fundamentals', 'Technical chart analysis', 'Fundamental analysis', 'Risk management']
   }
 ];
 

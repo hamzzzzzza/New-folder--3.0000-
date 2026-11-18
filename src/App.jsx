@@ -127,6 +127,7 @@ function App() {
   const [search, setSearch] = useState('');
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [openFaq, setOpenFaq] = useState(null);
+  const [selectedCourse, setSelectedCourse] = useState(null);
   const [testimonialIndex, setTestimonialIndex] = useState(0);
   const [testimonialMax, setTestimonialMax] = useState(0);
   const [testimonialCardOffset, setTestimonialCardOffset] = useState(404);
@@ -136,6 +137,7 @@ function App() {
   const [countersStarted, setCountersStarted] = useState(false);
   const testimonialTrack = useRef(null);
   const counters = useRef(null);
+  const courseDialog = useRef(null);
 
   const visibleCourses = useMemo(() => {
     const normalizedSearch = search.trim().toLowerCase();
@@ -197,6 +199,13 @@ function App() {
     setTestimonialIndex(index => Math.min(index, testimonialMax));
   }, [testimonialMax]);
 
+  useEffect(() => {
+    const dialog = courseDialog.current;
+    if (!dialog) return;
+    if (selectedCourse && !dialog.open) dialog.showModal();
+    else if (!selectedCourse && dialog.open) dialog.close();
+  }, [selectedCourse]);
+
   const scrollToCourses = () => {
     document.getElementById('courses')?.scrollIntoView({ behavior: 'smooth' });
   };
@@ -236,7 +245,7 @@ function App() {
         </div>
         <div className="course-duration-info">{course.duration}</div>
         <div className="course-actions">
-          <button className="btn-card-outline" type="button">View Details</button>
+          <button className="btn-card-outline" type="button" onClick={() => setSelectedCourse(course)}>View Details</button>
           <button className="btn-card-fill" type="button">Apply Now</button>
         </div>
       </div>
@@ -519,6 +528,45 @@ function App() {
           </div>
         </div>
       </footer>
+
+      <dialog
+        ref={courseDialog}
+        className="course-dialog"
+        aria-labelledby="course-dialog-title"
+        aria-modal="true"
+        onClose={() => setSelectedCourse(null)}
+        onClick={event => {
+          if (event.target === event.currentTarget) setSelectedCourse(null);
+        }}
+      >
+        {selectedCourse && (
+          <>
+            <div className="course-dialog-header">
+              <img src={selectedCourse.img} alt="" />
+              <span className={`course-badge ${selectedCourse.badgeColor}`}>{selectedCourse.badge}</span>
+              <button className="course-dialog-close" type="button" aria-label="Close course details" onClick={() => setSelectedCourse(null)}>×</button>
+            </div>
+            <div className="course-dialog-content">
+              <span className="course-dialog-category">{categoryLabels[selectedCourse.cat]}</span>
+              <h2 id="course-dialog-title" className="course-dialog-title">{selectedCourse.title}</h2>
+              <p className="course-dialog-description">{selectedCourse.desc}</p>
+              <div className="course-details-facts">
+                <div className="course-detail-fact"><span>Duration & mode</span><strong>{selectedCourse.duration.replace(/^⏱\s*/, '')}</strong></div>
+                <div className="course-detail-fact"><span>Course fee</span><strong>{selectedCourse.priceNow}</strong></div>
+                <div className="course-detail-fact"><span>Rating</span><strong>★ {selectedCourse.rating} ({(selectedCourse.reviews / 1000).toFixed(1)}K)</strong></div>
+              </div>
+              <h3 className="course-topics-title">Topics you'll explore</h3>
+              <ul className="course-topic-list">
+                {selectedCourse.topics.map(topic => <li key={topic}>{topic}</li>)}
+              </ul>
+              <div className="course-dialog-tags">
+                {selectedCourse.tags.map(tag => <span className="course-tag" key={tag}>{tag}</span>)}
+              </div>
+              <button className="btn-card-fill course-dialog-done" type="button" onClick={() => setSelectedCourse(null)}>Close Details</button>
+            </div>
+          </>
+        )}
+      </dialog>
     </>
   );
 }
