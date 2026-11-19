@@ -22,14 +22,14 @@ const features = [
 ];
 
 const internshipSteps = [
-  { title: 'Explore Internships', text: 'Browse the available programs and find an internship that fits your interests and goals.' },
-  { title: 'Choose a Program', text: 'Select the role and learning path you want to pursue.' },
-  { title: 'Complete Registration', text: 'Provide your details to finish signing up for your chosen program.' },
-  { title: 'Secure Your Place', text: 'Complete enrollment using the available payment options.' },
-  { title: 'Get Program Access', text: 'Review your enrollment details and get ready to begin your online internship.' },
-  { title: 'Join and Get Started', text: 'Follow your program roadmap and start learning at your own pace.' },
-  { title: 'Learn and Complete Projects', text: 'Build practical skills by completing your internship activities and projects.' },
-  { title: 'Get Certified', text: 'Complete the program and receive your internship completion certificate.' }
+  { title: 'Explore Internships', text: 'Browse through a wide range of internship opportunities across different domains. Choose the one that matches your interest and career goals.' },
+  { title: 'Choose a Program', text: 'Click on your preferred internship and hit the "Apply Now" button to begin your journey.' },
+  { title: 'Complete Registration', text: 'Fill in your basic details to complete your application process quickly and easily.' },
+  { title: 'Secure Your Place', text: 'Proceed to the payment page. Your payment is safe and ensures your spot in the internship program' },
+  { title: 'Get Program Access', text: 'Once your payment is successful, you will receive a WhatsApp Group Link in your dashboard.' },
+  { title: 'Join and Get Started', text: 'Join the WhatsApp group to receive internship guidelines, project details, resources, and updates.' },
+  { title: 'Learn and Complete Projects', text: 'Work on real-world tasks and projects as guided. Gain hands-on experience throughout the internship.' },
+  { title: 'Get Certified', text: 'Upon successful completion, receive your Internship Completion Certificate and project recognition.' }
 ];
 
 const categoryLabels = {
@@ -51,7 +51,7 @@ const testimonials = [
     name: 'Priya Menon',
     role: 'Data Intern → Data Analyst',
     salary: '↑ ₹3.0L → ₹5.5L per year',
-    image: 'https://images.unsplash.com/photo-1494790108755-2616b612b7c5?w=80&h=80&fit=crop&auto=format',
+    image: '/assets/priya-menon.jpg',
     quote: 'The hands-on tasks and mentor reviews were super helpful! I gained confidence writing production code and preparing for tech interviews.'
   },
   {
@@ -303,7 +303,7 @@ function App() {
               <form className="hero-search-bar" onSubmit={event => { event.preventDefault(); scrollToCourses(); }}>
                 <span className="hero-search-icon" aria-hidden="true">⌕</span>
                 <input value={search} onChange={event => updateSearch(event.target.value)} placeholder="Search internships (ML, Web Dev, Marketing...)" aria-label="Search internships by role or skill" />
-                <button type="submit">Search Internships</button>
+                <button type="submit">Explore Internships</button>
               </form>
               <div className="hero-benefits" aria-label="Program benefits">
                 <div className="hero-benefit"><span aria-hidden="true">✓</span> Beginner Friendly</div>
@@ -345,10 +345,10 @@ function App() {
 
         <section className="counter-section" ref={counters}>
           <div className="counters-grid">
-            <Reveal className="counter-item"><div className="counter-num"><span><AnimatedNumber target={5} enabled={countersStarted} /></span>K+</div><div className="counter-lbl">Active Learners</div></Reveal>
-            <Reveal className="counter-item reveal-delay-1"><div className="counter-num"><span><AnimatedNumber target={340} enabled={countersStarted} /></span>+</div><div className="counter-lbl">Expert Mentors</div></Reveal>
-            <Reveal className="counter-item reveal-delay-2"><div className="counter-num"><span><AnimatedNumber target={1200} enabled={countersStarted} /></span>+</div><div className="counter-lbl">Internships Available</div></Reveal>
-            <Reveal className="counter-item reveal-delay-3"><div className="counter-num"><span><AnimatedNumber target={98} enabled={countersStarted} /></span>%</div><div className="counter-lbl">Intern Satisfaction</div></Reveal>
+            <Reveal className="counter-item"><div className="counter-num"><span><AnimatedNumber target={1} enabled={countersStarted} /></span>K+</div><div className="counter-lbl">Active Learners</div></Reveal>
+            <Reveal className="counter-item reveal-delay-1"><div className="counter-num"><span><AnimatedNumber target={10} enabled={countersStarted} /></span>+</div><div className="counter-lbl">Expert Instructors</div></Reveal>
+            <Reveal className="counter-item reveal-delay-2"><div className="counter-num"><span><AnimatedNumber target={1000} enabled={countersStarted} /></span>+</div><div className="counter-lbl">Internships Available</div></Reveal>
+            <Reveal className="counter-item reveal-delay-3"><div className="counter-num"><span><AnimatedNumber target={98} enabled={countersStarted} /></span>%</div><div className="counter-lbl">Learner Satisfaction</div></Reveal>
           </div>
         </section>
 
@@ -363,7 +363,7 @@ function App() {
               {[
                 ['all', 'All Internships'],
                 ['dev', 'Development'],
-                ['marketing', 'Marketing & Finance'],
+                ['marketing', 'Marketing'],
                 ['creative', 'Creative'],
                 ['intelligence', 'Intelligence']
               ].map(([filter, label]) => (
@@ -377,7 +377,7 @@ function App() {
           </div>
         </section>
 
-        <section className="paths-section" id="paths">
+        {/* <section className="paths-section" id="paths">
           <div className="section-inner">
             <Reveal className="section-header center">
               <span className="section-tag path-section-tag">Learning Paths</span>
@@ -397,7 +397,7 @@ function App() {
               ))}
             </div>
           </div>
-        </section>
+        </section> */}
 
         <section className="why-section" id="why">
           <div className="section-inner">
@@ -419,7 +419,7 @@ function App() {
                 </div>
               </div>
               <Reveal className="why-img reveal-delay-2">
-                <img src="https://images.unsplash.com/photo-1531482615713-2afd69097998?w=600&h=700&fit=crop&auto=format" alt="Mentor guiding an intern" loading="lazy" />
+                <img src="/assets/internship-hero.png" alt="Students collaborating and building internship skills" loading="lazy" />
               </Reveal>
             </div>
             <Reveal className="why-banner-card">
@@ -435,7 +435,7 @@ function App() {
             <Reveal className="section-header center">
               <span className="section-tag">YOUR JOURNEY</span>
               <h2 className="section-title">How Our Internship<br /><em>Process Works</em></h2>
-              <p className="section-sub">A simple step-by-step path from choosing your internship to completing it.</p>
+              <p className="section-sub">Your professional journey mapped out from start to finish.</p>
             </Reveal>
             <ol className="process-list">
               {internshipSteps.map((step, index) => (
